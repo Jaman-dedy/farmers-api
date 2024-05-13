@@ -3,11 +3,24 @@ import bodyParser from 'body-parser';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import { config } from 'dotenv';
+import sequelize from './config/database';
 
 config();
 
 const app: Application = express();
 const port = process.env.PORT || 3000;
+
+sequelize
+  .sync()
+  .then(() => {
+    console.log('Database synchronized');
+    app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
+    });
+  })
+  .catch((error) => {
+    console.error('Error synchronizing database:', error);
+  });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
