@@ -20,10 +20,10 @@ interface DatabaseEnvironmentConfig {
 
 const databaseConfig: DatabaseEnvironmentConfig = {
   development: {
-    username: process.env.DB_USERNAME || 'your_dev_username',
-    password: process.env.DB_PASSWORD || 'your_dev_password',
-    database: process.env.DB_NAME || 'your_dev_database',
-    host: process.env.DB_HOST || 'localhost',
+    username: process.env.DB_USERNAME || 'admin',
+    password: process.env.DB_PASSWORD || 'farmer_2024',
+    database: process.env.DB_NAME || 'farmer_db',
+    host: process.env.DB_HOST || 'db',
     port: Number(process.env.DB_PORT) || 5432,
     dialect: 'postgres',
   },
