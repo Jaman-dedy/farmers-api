@@ -36,14 +36,12 @@ const swaggerOptions = {
       description: 'API documentation for the Farmer Ordering System',
     },
   },
-  apis: ['./src/routes/*.ts'], // Path to the API route files
+  apis: ['./src/swagger/*.ts'],
 };
 
 const swaggerSpec = swaggerJSDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-// Routes
-// TODO: Import and use route files
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error(err.stack);
