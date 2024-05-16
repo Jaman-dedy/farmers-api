@@ -4,6 +4,7 @@ import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import { config } from 'dotenv';
 import sequelize from './config/database';
+import routes from './routes';
 
 config();
 
@@ -24,6 +25,7 @@ sequelize
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/api', routes);
 
 const swaggerOptions = {
   definition: {

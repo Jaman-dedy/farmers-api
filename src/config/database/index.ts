@@ -2,6 +2,7 @@
 import { Sequelize } from 'sequelize';
 import databaseConfig from './database';
 
+
 const env = process.env.NODE_ENV || 'development';
 const config = databaseConfig[env as keyof typeof databaseConfig];
 
