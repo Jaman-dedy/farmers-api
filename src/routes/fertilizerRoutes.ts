@@ -1,11 +1,14 @@
 import express from 'express';
 import FertilizerController from '../controllers/FertilizerController';
+import { fertilizerValidationRules } from '../utils/validators/fertilizerValidator';
 
 const router = express.Router();
 const fertilizerController = new FertilizerController();
 
-router.post('/', fertilizerController.createFertilizer);
+router.post('/', fertilizerValidationRules, fertilizerController.createFertilizer);
+
 router.get('/:id', fertilizerController.getFertilizerById);
-// To do Add more routes as needed
+
+router.get('/', fertilizerController.getFertilizers);
 
 export default router;

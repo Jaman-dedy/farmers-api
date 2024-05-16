@@ -43,7 +43,7 @@ Order.init(
   {
     sequelize,
     modelName: 'Order',
-    tableName: 'orders',
+    tableName: 'Orders',
   }
 );
 

@@ -38,7 +38,7 @@ Seed.init(
   {
     sequelize,
     modelName: 'Seed',
-    tableName: 'seeds',
+    tableName: 'Seeds',
   }
 );
 

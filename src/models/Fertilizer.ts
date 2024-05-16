@@ -38,7 +38,7 @@ Fertilizer.init(
   {
     sequelize,
     modelName: 'Fertilizer',
-    tableName: 'fertilizers',
+    tableName: 'Fertilizers',
   }
 );
 

@@ -39,7 +39,7 @@ Farmer.init(
   {
     sequelize,
     modelName: 'Farmer',
-    tableName: 'farmers',
+    tableName: 'Farmers',
   }
 );
 
