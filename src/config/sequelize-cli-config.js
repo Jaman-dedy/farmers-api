@@ -12,7 +12,7 @@ module.exports = {
   test: {
     username: process.env.TEST_DB_USERNAME || 'your_test_username',
     password: process.env.TEST_DB_PASSWORD || 'your_test_password',
-    database: process.env.TEST_DB_NAME || 'your_test_database',
+    database: process.env.TEST_DB_NAME || 'farmer_db_test',
     host: process.env.NODE_ENV === 'docker' ? 'db' : 'localhost',
     port: Number(process.env.TEST_DB_PORT) || 5432,
     dialect: 'postgres',

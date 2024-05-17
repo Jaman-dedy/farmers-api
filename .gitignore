@@ -47,7 +47,6 @@ jspm_packages/
 
 .env.test
 
-migrations/
 
 uploads/
 
