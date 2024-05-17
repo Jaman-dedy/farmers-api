@@ -10,10 +10,10 @@ module.exports = {
     dialect: 'postgres',
   },
   test: {
-    username: process.env.TEST_DB_USERNAME || 'your_test_username',
-    password: process.env.TEST_DB_PASSWORD || 'your_test_password',
+    username: process.env.TEST_DB_USERNAME || 'admin',
+    password: process.env.TEST_DB_PASSWORD || 'farmer_2024',
     database: process.env.TEST_DB_NAME || 'farmer_db_test',
-    host: process.env.NODE_ENV === 'docker' ? 'db' : 'localhost',
+    host: process.env.TEST_DB_HOST || 'db_test',
     port: Number(process.env.TEST_DB_PORT) || 5432,
     dialect: 'postgres',
   },

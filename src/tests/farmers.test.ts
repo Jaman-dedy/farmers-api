@@ -16,7 +16,7 @@ app.delete('/farmers/:id', farmerController.deleteFarmer);
 
 describe('FarmerController', () => {
 beforeAll(async () => {
-await new Promise((resolve) => setTimeout(resolve, 5000)); // Wait for 5 seconds
+jest.setTimeout(30000);
 await sequelize.authenticate();
 await sequelize.sync();
 });

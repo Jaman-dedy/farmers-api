@@ -12,10 +12,21 @@ services:
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
 
+  db_test:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${TEST_DB_NAME}
+    ports:
+      - '5433:5432'
+
   app:
     build: .
     depends_on:
       - db
+      - db_test
     environment:
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
@@ -23,10 +34,12 @@ services:
       TEST_DB_NAME: ${TEST_DB_NAME}
       DB_HOST: db
       DB_PORT: 5432
+      TEST_DB_HOST: db_test
+      TEST_DB_PORT: 5432
       PORT: ${PORT}
       NODE_ENV: ${NODE_ENV}
     ports:
-      - '${PORT}:${PORT}'
+      - "${PORT}:${PORT}"
     volumes:
       - ./:/app
     command: npm run dev
